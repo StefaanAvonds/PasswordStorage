@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PasswordStorage")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Password Storage")]
+[assembly: AssemblyDescription("An application to store all your passwords in.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PasswordStorage")]
+[assembly: AssemblyCompany("Stefaan Avonds")]
+[assembly: AssemblyProduct("Password Storage")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

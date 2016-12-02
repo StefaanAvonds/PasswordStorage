@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -16,7 +17,8 @@ namespace PasswordStorage
 
         public XmlManager()
         {
-            _filename = "passwords.xml";
+            _filename = GetFullFilename("passwords.xml");
+
             if (!File.Exists(_filename))
             {
                 _xmlDocument = new XDocument();
@@ -26,6 +28,21 @@ namespace PasswordStorage
             {
                 _xmlDocument = XDocument.Load(_filename);
             }
+        }
+
+        /// <summary>
+        /// Get the full filename with a specific path.
+        /// </summary>
+        /// <param name="filename">The name of the file.</param>
+        /// <returns>The full path.</returns>
+        private string GetFullFilename(string filename)
+        {
+            string localAppdata = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string userFilepath = Path.Combine(localAppdata, "Avonds");
+
+            if (!Directory.Exists(userFilepath)) Directory.CreateDirectory(userFilepath);
+
+            return Path.Combine(userFilepath, filename);
         }
         
         /// <summary>
