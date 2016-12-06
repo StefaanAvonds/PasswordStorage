@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasswordStorage.Managers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,12 @@ namespace PasswordStorage
 {
     public partial class Homepage : Form
     {
-        private XmlManager _xmlManager;
         private PasswordEntity _selectedPassword;
 
         public Homepage()
         {
             InitializeComponent();
             this.CenterToScreen();
-            
-            _xmlManager = new XmlManager();
         }
 
         private void Homepage_Load(object sender, EventArgs e)
@@ -51,7 +49,7 @@ namespace PasswordStorage
         /// </summary>
         private void ReloadPasswords()
         {
-            var list = _xmlManager.ReadPasswordsFromXml();
+            var list = App.XmlManager.ReadPasswordsFromXml();
             
             lstPasswords.DataSource = list;
             //lstPasswords.ValueMember = "Title";
@@ -90,7 +88,7 @@ namespace PasswordStorage
             }
 
             _selectedPassword.Id = Guid.NewGuid();
-            bool result = _xmlManager.AddNewPassword(_selectedPassword);
+            bool result = App.XmlManager.AddNewPassword(_selectedPassword);
             if (result)
             {
                 MessageBox.Show("Password added!");
@@ -112,7 +110,7 @@ namespace PasswordStorage
                 return;
             }
 
-            bool result = _xmlManager.UpdatePassword(_selectedPassword);
+            bool result = App.XmlManager.UpdatePassword(_selectedPassword);
             if (result)
             {
                 MessageBox.Show("Password updated!");
@@ -131,7 +129,7 @@ namespace PasswordStorage
             DialogResult doDelete = MessageBox.Show("Are you sure you want to delete this password? It is irreversible!", "Delete", MessageBoxButtons.YesNo);
             if (doDelete != DialogResult.Yes) return;
 
-            bool result = _xmlManager.DeletePassword(_selectedPassword);
+            bool result = App.XmlManager.DeletePassword(_selectedPassword);
             if (result)
             {
                 MessageBox.Show("Password deleted!");
@@ -157,6 +155,20 @@ namespace PasswordStorage
         private void btnCopyUrl_Click(object sender, EventArgs e)
         {
             CopyToClipboard(_selectedPassword.Url);
+        }
+
+        private void btnOpenUrl_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(_selectedPassword.Url)) return;
+
+            if (!App.UrlManager.IsValidUrl(_selectedPassword.Url))
+            {
+                // If the URL is not valid, don't navigate
+                MessageBox.Show("You've not entered a valid URL!");
+                return;
+            }
+
+            App.UrlManager.OpenWebPage(_selectedPassword.Url);
         }
     }
 }

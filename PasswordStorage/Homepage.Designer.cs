@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage));
             this.groupItem = new System.Windows.Forms.GroupBox();
+            this.btnOpenUrl = new System.Windows.Forms.Button();
+            this.btnCopyUrl = new System.Windows.Forms.Button();
+            this.btnCopyPassword = new System.Windows.Forms.Button();
+            this.btnCopyUsername = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -45,9 +49,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupList = new System.Windows.Forms.GroupBox();
             this.lstPasswords = new System.Windows.Forms.ListBox();
-            this.btnCopyUrl = new System.Windows.Forms.Button();
-            this.btnCopyPassword = new System.Windows.Forms.Button();
-            this.btnCopyUsername = new System.Windows.Forms.Button();
             this.groupItem.SuspendLayout();
             this.groupList.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +57,7 @@
             // 
             this.groupItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupItem.Controls.Add(this.btnOpenUrl);
             this.groupItem.Controls.Add(this.btnCopyUrl);
             this.groupItem.Controls.Add(this.btnCopyPassword);
             this.groupItem.Controls.Add(this.btnCopyUsername);
@@ -79,155 +81,20 @@
             this.groupItem.TabStop = false;
             this.groupItem.Text = "Item";
             // 
-            // btnAdd
+            // btnOpenUrl
             // 
-            this.btnAdd.Location = new System.Drawing.Point(496, 259);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(85, 33);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(587, 259);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(85, 33);
-            this.btnUpdate.TabIndex = 9;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(678, 259);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(85, 33);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // txtExtra
-            // 
-            this.txtExtra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExtra.Location = new System.Drawing.Point(130, 133);
-            this.txtExtra.Multiline = true;
-            this.txtExtra.Name = "txtExtra";
-            this.txtExtra.Size = new System.Drawing.Size(633, 120);
-            this.txtExtra.TabIndex = 7;
-            // 
-            // lblExtra
-            // 
-            this.lblExtra.AutoSize = true;
-            this.lblExtra.Location = new System.Drawing.Point(6, 136);
-            this.lblExtra.Name = "lblExtra";
-            this.lblExtra.Size = new System.Drawing.Size(44, 17);
-            this.lblExtra.TabIndex = 15;
-            this.lblExtra.Text = "Extra:";
-            // 
-            // txtURL
-            // 
-            this.txtURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtURL.Location = new System.Drawing.Point(130, 105);
-            this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(600, 22);
-            this.txtURL.TabIndex = 5;
-            // 
-            // lblURL
-            // 
-            this.lblURL.AutoSize = true;
-            this.lblURL.Location = new System.Drawing.Point(6, 108);
-            this.lblURL.Name = "lblURL";
-            this.lblURL.Size = new System.Drawing.Size(40, 17);
-            this.lblURL.TabIndex = 14;
-            this.lblURL.Text = "URL:";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(130, 77);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(600, 22);
-            this.txtPassword.TabIndex = 3;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(6, 80);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 17);
-            this.lblPassword.TabIndex = 13;
-            this.lblPassword.Text = "Password:";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.Location = new System.Drawing.Point(130, 49);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(600, 22);
-            this.txtUsername.TabIndex = 1;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(6, 52);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(77, 17);
-            this.lblUsername.TabIndex = 12;
-            this.lblUsername.Text = "Username:";
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.Location = new System.Drawing.Point(130, 21);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(633, 22);
-            this.txtTitle.TabIndex = 0;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(6, 24);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(39, 17);
-            this.lblTitle.TabIndex = 11;
-            this.lblTitle.Text = "Title:";
-            // 
-            // groupList
-            // 
-            this.groupList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupList.Controls.Add(this.lstPasswords);
-            this.groupList.Location = new System.Drawing.Point(12, 316);
-            this.groupList.Name = "groupList";
-            this.groupList.Size = new System.Drawing.Size(769, 280);
-            this.groupList.TabIndex = 1;
-            this.groupList.TabStop = false;
-            this.groupList.Text = "Passwords";
-            // 
-            // lstPasswords
-            // 
-            this.lstPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstPasswords.FormattingEnabled = true;
-            this.lstPasswords.ItemHeight = 16;
-            this.lstPasswords.Location = new System.Drawing.Point(3, 18);
-            this.lstPasswords.Name = "lstPasswords";
-            this.lstPasswords.Size = new System.Drawing.Size(763, 259);
-            this.lstPasswords.TabIndex = 0;
-            this.lstPasswords.SelectedIndexChanged += new System.EventHandler(this.lstPasswords_SelectedIndexChanged);
+            this.btnOpenUrl.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenUrl.Image")));
+            this.btnOpenUrl.Location = new System.Drawing.Point(736, 105);
+            this.btnOpenUrl.Name = "btnOpenUrl";
+            this.btnOpenUrl.Size = new System.Drawing.Size(27, 22);
+            this.btnOpenUrl.TabIndex = 7;
+            this.btnOpenUrl.UseVisualStyleBackColor = true;
+            this.btnOpenUrl.Click += new System.EventHandler(this.btnOpenUrl_Click);
             // 
             // btnCopyUrl
             // 
             this.btnCopyUrl.Image = global::PasswordStorage.Properties.Resources.copy;
-            this.btnCopyUrl.Location = new System.Drawing.Point(736, 105);
+            this.btnCopyUrl.Location = new System.Drawing.Point(703, 105);
             this.btnCopyUrl.Name = "btnCopyUrl";
             this.btnCopyUrl.Size = new System.Drawing.Size(27, 22);
             this.btnCopyUrl.TabIndex = 6;
@@ -253,6 +120,151 @@
             this.btnCopyUsername.TabIndex = 2;
             this.btnCopyUsername.UseVisualStyleBackColor = true;
             this.btnCopyUsername.Click += new System.EventHandler(this.btnCopyUsername_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(496, 259);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(85, 33);
+            this.btnAdd.TabIndex = 9;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(587, 259);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(85, 33);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(678, 259);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(85, 33);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // txtExtra
+            // 
+            this.txtExtra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExtra.Location = new System.Drawing.Point(130, 133);
+            this.txtExtra.Multiline = true;
+            this.txtExtra.Name = "txtExtra";
+            this.txtExtra.Size = new System.Drawing.Size(633, 120);
+            this.txtExtra.TabIndex = 8;
+            // 
+            // lblExtra
+            // 
+            this.lblExtra.AutoSize = true;
+            this.lblExtra.Location = new System.Drawing.Point(6, 136);
+            this.lblExtra.Name = "lblExtra";
+            this.lblExtra.Size = new System.Drawing.Size(44, 17);
+            this.lblExtra.TabIndex = 16;
+            this.lblExtra.Text = "Extra:";
+            // 
+            // txtURL
+            // 
+            this.txtURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtURL.Location = new System.Drawing.Point(130, 105);
+            this.txtURL.Name = "txtURL";
+            this.txtURL.Size = new System.Drawing.Size(567, 22);
+            this.txtURL.TabIndex = 5;
+            // 
+            // lblURL
+            // 
+            this.lblURL.AutoSize = true;
+            this.lblURL.Location = new System.Drawing.Point(6, 108);
+            this.lblURL.Name = "lblURL";
+            this.lblURL.Size = new System.Drawing.Size(40, 17);
+            this.lblURL.TabIndex = 15;
+            this.lblURL.Text = "URL:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Location = new System.Drawing.Point(130, 77);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(600, 22);
+            this.txtPassword.TabIndex = 3;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(6, 80);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(73, 17);
+            this.lblPassword.TabIndex = 14;
+            this.lblPassword.Text = "Password:";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsername.Location = new System.Drawing.Point(130, 49);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(600, 22);
+            this.txtUsername.TabIndex = 1;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(6, 52);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(77, 17);
+            this.lblUsername.TabIndex = 13;
+            this.lblUsername.Text = "Username:";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTitle.Location = new System.Drawing.Point(130, 21);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(633, 22);
+            this.txtTitle.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(6, 24);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(39, 17);
+            this.lblTitle.TabIndex = 12;
+            this.lblTitle.Text = "Title:";
+            // 
+            // groupList
+            // 
+            this.groupList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupList.Controls.Add(this.lstPasswords);
+            this.groupList.Location = new System.Drawing.Point(12, 316);
+            this.groupList.Name = "groupList";
+            this.groupList.Size = new System.Drawing.Size(769, 280);
+            this.groupList.TabIndex = 1;
+            this.groupList.TabStop = false;
+            this.groupList.Text = "Passwords";
+            // 
+            // lstPasswords
+            // 
+            this.lstPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstPasswords.FormattingEnabled = true;
+            this.lstPasswords.ItemHeight = 16;
+            this.lstPasswords.Location = new System.Drawing.Point(3, 18);
+            this.lstPasswords.Name = "lstPasswords";
+            this.lstPasswords.Size = new System.Drawing.Size(763, 259);
+            this.lstPasswords.TabIndex = 0;
+            this.lstPasswords.SelectedIndexChanged += new System.EventHandler(this.lstPasswords_SelectedIndexChanged);
             // 
             // Homepage
             // 
@@ -295,6 +307,7 @@
         private System.Windows.Forms.Button btnCopyUsername;
         private System.Windows.Forms.Button btnCopyUrl;
         private System.Windows.Forms.Button btnCopyPassword;
+        private System.Windows.Forms.Button btnOpenUrl;
     }
 }
 

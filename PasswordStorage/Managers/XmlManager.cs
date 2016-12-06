@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace PasswordStorage
+namespace PasswordStorage.Managers
 {
     public class XmlManager
     {
